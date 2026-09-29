@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Конвертор</title>
+	</head>
+	<body>
+		<h1>Преобразование из дюймов в см</h1>
+		<form action="convertor3.php" method="post"> 
+			<p>Величина в дюймах:
+				<input type="text" name="inches" size="10"></p>
+				<p><input type="submit" value="Преобразователь"></p>
+		</form>
+		<?php
+			if (isset($_POST['inches'])) {
+				$ins = (double)str_replace(',', '.', $_POST['inches']);
+				if ($ins > 0) {
+					$cents = round($ins * 2.54);
+					echo '<p>', $ins, ' дюймов = ', $cents, ' см </p>';
+				} else
+					echo '<p>Величина в дюймах должна быть больше нуля.</p>';
+			}
+		?>
+	</body>
+</html>
