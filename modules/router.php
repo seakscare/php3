@@ -1,9 +1,0 @@
-<?php
-$base_path = __DIR__ . '\\';
-$request_path = $_GET['route'];
-if ($request_path == '')
-    require $base_path . 'modules/list.php';
-else {
-    $index = (integer)$request_path;
-    require $base_path . 'modules/item.php';
-}
