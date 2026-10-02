@@ -4,7 +4,8 @@ require_once $base_path . 'modules/settings.php';
 
 function my_autoloader(string $class_name) {
     global $base_path;
-    require_once $base_path . 'modules\\' . $class_name . '.php';
+		$class_name = str_replace('\\', DIRECTORY_SEPARATOR, $class_name);
+    require_once $base_path . 'modules' . DIRECTORY_SEPARATOR . $class_name . '.php';
 }
 spl_autoload_register('my_autoloader');
 
